@@ -21,6 +21,14 @@ entity.pCrystalChicken.name=Prismarinkristallhuhn
 entity.obsidianChicken.name=Obsidianhuhn
 entity.soulSandChicken.name=Seelensandhuhn
 
+entity.dirtChicken.name=Erde Huhn
+entity.cobblestoneChicken.name=Kopfsteinpflaster Huhn
+entity.gravelChicken.name=Kies Chick
+
+entity.dustChicken.name=Staub Huhn
+entity.netherrackCrushedChicken.name=Netherrackerkleinert Huhn
+entity.endstoneCrushedChicken.name=Endesteinzerkleinert Huhn
+
 entity.funwaychick.name=Funwayhuhn
 entity.chickenosto.name=Huhnosto
 entity.mramericanchick.name=MrAmericanHuhn

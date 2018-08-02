@@ -1,7 +1,5 @@
 package com.gendeathrow.morechickens.core;
 
-
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,6 +30,7 @@ import com.gendeathrow.morechickens.modHelper.SpecialChickens;
 import com.gendeathrow.morechickens.modHelper.TechRebornAddon;
 import com.gendeathrow.morechickens.modHelper.ThermalFoundationAddon;
 import com.gendeathrow.morechickens.modHelper.TinkersConstructAddon;
+import com.gendeathrow.morechickens.modHelper.ExNihiloCreatioAddon;
 import com.gendeathrow.morechickens.util.LogUtil;
 import com.setycz.chickens.registry.ChickensRegistry;
 import com.setycz.chickens.registry.ChickensRegistryItem;
@@ -58,14 +57,12 @@ public class ChickensMore
 {
 
 		public static final String MODID = "morechickens";
-	    //public static final String VERSION = "3.0.0";
-		public static final String VERSION = "@VERSION@";
+		public static final String VERSION = "3.2.0";
 	    public static final String NAME = "More Chickens";
 	    public static final String PROXY = "com.gendeathrow.morechickens.core.proxies";
 	    public static final String CHANNELNAME = "morechickens";
 	    
-	    //TODO required-after:chickens@[6.0.0,);
-	    public static final String dependencies =  "required-after:chickens@[6.0.0,);"
+	    public static final String dependencies =  "required-after:chickens@[6.1.0,);"
 	    		+ "after:botania;"
 	    		+ "after:basemetals;"
 	    		+ "after:tconstruct;"
@@ -81,7 +78,8 @@ public class ChickensMore
 	    		+ "after:actuallyadditions;"
 	    		+ "after:extrautils2;"
 	    		+ "after:refinedstorage;"
-	    		+ "after:techreborn";
+	    		+ "after:techreborn;"
+	    		+ "after:exnihilocreatio";
 	    
 	    @Instance(MODID)
 		public static ChickensMore instance;
@@ -100,10 +98,6 @@ public class ChickensMore
 	    public void preInit(FMLPreInitializationEvent event)
 	    {
 	    	LogUtil.setup();
-	    	
-
-	    	
-	    	//logger = LogUtil;	   
 	    	LogUtil.log(Level.DEBUG, "is Dev "+ isDev);
 	    	LogUtil.info("More Chickens PreInit...");
 	    	ChickensMore.network = NetworkRegistry.INSTANCE.newSimpleChannel(ChickensMore.CHANNELNAME);
@@ -125,14 +119,10 @@ public class ChickensMore
 	    	
 	    	proxy.registerEventHandlers();
 	    	proxy.initRenderers();
-	    	
-	     }
-	    
-	    
+	    }
 	    
 	    private void loadConfiguration(File configFile) 
 	    {
-
 	        Configuration configuration = new Configuration(configFile);
 
 	        Collection<ChickensRegistryItem> allChickens = generateDefaultChickens();
@@ -152,9 +142,9 @@ public class ChickensMore
 	        configuration.save();
 	    }
 	    
-	    
 	    @SuppressWarnings("unused")
-		private ItemStack loadItemStack(Configuration configuration, ChickensRegistryItem chicken, String prefix, ItemStack defaultItemStack) {
+		private ItemStack loadItemStack(Configuration configuration, ChickensRegistryItem chicken, String prefix, ItemStack defaultItemStack)
+	    {
 	    	String Category = chicken.getRegistryName().toString();
 	    	
 	        String itemName = configuration.getString(prefix + "ItemName", Category, defaultItemStack.getItem().getRegistryName().toString(), "Item name to be laid/dropped.");
@@ -174,7 +164,6 @@ public class ChickensMore
 	    @EventHandler
 	    public void postInit(FMLPostInitializationEvent event)
 	    {
-	    	
 	    	proxy.postInit(event);
 	    }
 	    
@@ -206,6 +195,7 @@ public class ChickensMore
 			addModAddon(new ExtraUtilitiesAddon());
 			addModAddon(new RefinedStorageAddon());
 			addModAddon(new TechRebornAddon());
+			addModAddon(new ExNihiloCreatioAddon());
 		}
 		
 		public void addModAddon(BaseModAddon addon)
@@ -247,11 +237,4 @@ public class ChickensMore
 	    	String Category = chicken.getRegistryName().toString();
 	        return configuration.getString(propertyName, Category, parent != null ? parent.getEntityName() : "", "First parent, empty if it's base chicken.");
 	    }
-	    
-
-	    
-	}
-
-
-
-
+}

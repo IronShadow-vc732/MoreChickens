@@ -33,8 +33,7 @@ public abstract class BaseModAddon
 		this.modID = modID;
 		this.modName = modName;
 		this.texturesLocation = texturesLocation;
-	}
-	
+	}	
 	
 	public String getModID()
 	{

@@ -21,6 +21,14 @@ entity.pCrystalChicken.name=Prismarine Crystal Chicken
 entity.obsidianChicken.name=Obsidian Chicken
 entity.soulSandChicken.name=Soul Sand Chicken
 
+entity.dirtChicken.name=Dirt Chick
+entity.cobblestoneChicken.name=Cobblestone Chick
+entity.gravelChicken.name=Gravel Chick
+
+entity.dustChicken.name=Dust Chick
+entity.netherrackCrushedChicken.name=Crushed Netherrack Chicken
+entity.endstoneCrushedChicken.name=Crushed Endstone Chicken
+
 entity.funwaychick.name=Funwaychick
 entity.chickenosto.name=Chickenosto
 entity.mramericanchick.name=MrAmericanChick
